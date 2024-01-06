@@ -1,0 +1,95 @@
+[gd_scene load_steps=5 format=3 uid="uid://beuf3g1mqyedf"]
+
+[ext_resource type="Script" path="res://models/car_controller.gd" id="1_uq72f"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hq1ot"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6kpht"]
+albedo_color = Color(0.298039, 0.298039, 0.298039, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lc0f4"]
+size = Vector3(3.34764, 1.57572, 3.65138)
+
+[node name="Car" type="VehicleBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00830603, -0.657004, -0.621139)
+mass = 300.0
+script = ExtResource("1_uq72f")
+max_torque = 800
+max_tire_angle = 0.35
+
+[node name="front_left" type="VehicleWheel3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.02637, 0.493552, 1.47782)
+use_as_steering = true
+wheel_roll_influence = 0.0
+wheel_rest_length = 0.2
+suspension_travel = 0.15
+suspension_stiffness = 50.0
+damping_compression = 1.9
+damping_relaxation = 2.0
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="front_left"]
+transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 0, -0.0355362, 0)
+height = 0.281029
+material = SubResource("StandardMaterial3D_hq1ot")
+
+[node name="front_right" type="VehicleWheel3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.997275, 0.493552, 1.47782)
+use_as_steering = true
+wheel_roll_influence = 0.0
+wheel_rest_length = 0.2
+suspension_travel = 0.15
+suspension_stiffness = 50.0
+damping_compression = 1.9
+damping_relaxation = 2.0
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="front_right"]
+transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 0, -0.0355362, 0)
+height = 0.281029
+material = SubResource("StandardMaterial3D_hq1ot")
+
+[node name="rear_left" type="VehicleWheel3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.02637, 0.48649, -1.44336)
+use_as_traction = true
+wheel_roll_influence = 0.0
+wheel_rest_length = 0.2
+suspension_travel = 0.15
+suspension_stiffness = 50.0
+damping_compression = 1.9
+damping_relaxation = 2.0
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="rear_left"]
+transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 0, 0, 0)
+height = 0.281029
+material = SubResource("StandardMaterial3D_6kpht")
+
+[node name="rear_right" type="VehicleWheel3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.997275, 0.48649, -1.44336)
+use_as_traction = true
+wheel_roll_influence = 0.0
+wheel_rest_length = 0.2
+suspension_travel = 0.15
+suspension_stiffness = 50.0
+damping_compression = 1.9
+damping_relaxation = 2.0
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="rear_right"]
+transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 0, 0, 0)
+height = 0.281029
+material = SubResource("StandardMaterial3D_6kpht")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.619857, 0)
+size = Vector3(2.31743, 0.658281, 3.71089)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.08184, 0)
+shape = SubResource("BoxShape3D_lc0f4")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.15693, 1.23618)
+size = Vector3(2.20773, 0.497806, 1)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.36322, -0.638683)
+size = Vector3(2.20773, 0.929411, 2.21086)

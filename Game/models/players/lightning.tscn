@@ -1,0 +1,75 @@
+[gd_scene load_steps=5 format=3 uid="uid://donvcwy24jgba"]
+
+[ext_resource type="Script" path="res://models/car_controller.gd" id="1_m88nl"]
+[ext_resource type="PackedScene" uid="uid://ye0q6xo4pfxr" path="res://models/players/lightning.glb" id="2_nt2ty"]
+[ext_resource type="PackedScene" uid="uid://dvpjyjopcfwb4" path="res://models/players/lightning-tire.glb" id="3_oxs87"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6dksl"]
+size = Vector3(2.56546, 1.47558, 5.01379)
+
+[node name="McQueen" type="VehicleBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.129094, -0.654079)
+collision_layer = 2
+mass = 300.0
+script = ExtResource("1_m88nl")
+max_rpm = 700
+max_tire_angle = 0.5
+
+[node name="lightning" parent="." instance=ExtResource("2_nt2ty")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.961206, -0.146307, -0.104054)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.588307, -0.196103)
+shape = SubResource("BoxShape3D_6dksl")
+
+[node name="front_left" type="VehicleWheel3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.755767, 0.23988, 1.3416)
+use_as_steering = true
+wheel_roll_influence = 0.0
+wheel_rest_length = 0.1
+wheel_friction_slip = 17.0
+suspension_stiffness = 100.0
+damping_compression = 1.9
+damping_relaxation = 2.0
+
+[node name="lightning-tire" parent="front_left" instance=ExtResource("3_oxs87")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00611079, 0.00379854, 0.0105152)
+
+[node name="front_right" type="VehicleWheel3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.761234, 0.23988, 1.3416)
+use_as_steering = true
+wheel_roll_influence = 0.0
+wheel_rest_length = 0.1
+wheel_friction_slip = 17.0
+suspension_stiffness = 100.0
+damping_compression = 1.9
+damping_relaxation = 2.0
+
+[node name="lightning-tire" parent="front_right" instance=ExtResource("3_oxs87")]
+transform = Transform3D(-1, 0, -8.74228e-08, -5.23475e-08, 0.800909, 0.598786, 7.00177e-08, 0.598786, -0.800909, -0.00611079, 0.00379854, 0.0105152)
+
+[node name="rear_left" type="VehicleWheel3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.755767, 0.23988, -1.51736)
+use_as_traction = true
+wheel_roll_influence = 0.0
+wheel_rest_length = 0.1
+wheel_friction_slip = 17.0
+suspension_stiffness = 100.0
+damping_compression = 1.9
+damping_relaxation = 2.0
+
+[node name="lightning-tire" parent="rear_left" instance=ExtResource("3_oxs87")]
+transform = Transform3D(1, 0, 0, 0, 0.83504, -0.550189, 0, 0.550189, 0.83504, -0.00611079, 0.00379854, 0.0105152)
+
+[node name="rear_right" type="VehicleWheel3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.761234, 0.23988, -1.51736)
+use_as_traction = true
+wheel_roll_influence = 0.0
+wheel_rest_length = 0.1
+wheel_friction_slip = 17.0
+suspension_stiffness = 100.0
+damping_compression = 1.9
+damping_relaxation = 2.0
+
+[node name="lightning-tire" parent="rear_right" instance=ExtResource("3_oxs87")]
+transform = Transform3D(-1, 0, -8.74228e-08, 7.91524e-08, 0.424563, -0.905398, 3.71165e-08, -0.905398, -0.424563, -0.00611079, 0.00379854, 0.0105152)

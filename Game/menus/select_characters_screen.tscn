@@ -1,0 +1,53 @@
+[gd_scene load_steps=5 format=3 uid="uid://dni2jsn31oq2j"]
+
+[ext_resource type="Script" path="res://menus/select_characters_screen.gd" id="1_vsvop"]
+[ext_resource type="Script" path="res://utility/KeyboardInputProfile.gd" id="2_07mwj"]
+
+[sub_resource type="Resource" id="Resource_gevb2"]
+script = ExtResource("2_07mwj")
+profile_index = 1
+
+[sub_resource type="Resource" id="Resource_1du5l"]
+script = ExtResource("2_07mwj")
+profile_index = 2
+
+[node name="SelectCharactersScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vsvop")
+keyboard_profiles = Array[ExtResource("2_07mwj")]([SubResource("Resource_gevb2"), SubResource("Resource_1du5l")])
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Players" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Instructions" type="CenterContainer" parent="Players"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="Players/Instructions"]
+layout_mode = 2
+text = "\"Forward\" to join.
+\"Backward\" to leave.
+\"Left/Right\" to choose car."
+horizontal_alignment = 1
+vertical_alignment = 1

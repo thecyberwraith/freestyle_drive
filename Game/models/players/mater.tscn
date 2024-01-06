@@ -1,0 +1,85 @@
+[gd_scene load_steps=6 format=3 uid="uid://c7wnupwyssbtm"]
+
+[ext_resource type="Script" path="res://models/car_controller.gd" id="1_lrqxi"]
+[ext_resource type="PackedScene" uid="uid://ewhrdb4oemj6" path="res://models/players/mater.glb" id="2_akgbn"]
+[ext_resource type="PackedScene" uid="uid://d0frmfgkuyn74" path="res://models/players/mater-tire.glb" id="3_m8442"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5wvty"]
+size = Vector3(2.04733, 1, 4.6262)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ruqob"]
+size = Vector3(2, 0.998238, 1.35725)
+
+[node name="Mater" type="VehicleBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.239001, 0)
+collision_layer = 2
+mass = 500.0
+script = ExtResource("1_lrqxi")
+max_rpm = 600
+
+[node name="mater" parent="." instance=ExtResource("2_akgbn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.16593)
+
+[node name="front_left" type="VehicleWheel3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.826052, -0.421575, 0.489025)
+use_as_steering = true
+wheel_roll_influence = 0.0
+wheel_radius = 0.45
+wheel_rest_length = 0.07
+wheel_friction_slip = 2.0
+suspension_travel = 0.1
+suspension_stiffness = 125.0
+damping_compression = 1.9
+damping_relaxation = 2.0
+
+[node name="mater-tire" parent="front_left" instance=ExtResource("3_m8442")]
+
+[node name="front_right" type="VehicleWheel3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.826, -0.422, 0.489)
+use_as_steering = true
+wheel_roll_influence = 0.0
+wheel_radius = 0.45
+wheel_rest_length = 0.07
+wheel_friction_slip = 2.0
+suspension_travel = 0.1
+suspension_stiffness = 125.0
+damping_compression = 1.9
+damping_relaxation = 2.0
+
+[node name="mater-tire" parent="front_right" instance=ExtResource("3_m8442")]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="rear_left" type="VehicleWheel3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.826052, -0.421575, -2.45619)
+use_as_traction = true
+wheel_roll_influence = 0.0
+wheel_radius = 0.45
+wheel_rest_length = 0.07
+wheel_friction_slip = 2.0
+suspension_stiffness = 75.0
+damping_compression = 1.9
+damping_relaxation = 2.0
+
+[node name="mater-tire" parent="rear_left" instance=ExtResource("3_m8442")]
+
+[node name="rear_right" type="VehicleWheel3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.826, -0.422, -2.45622)
+use_as_traction = true
+wheel_roll_influence = 0.0
+wheel_radius = 0.45
+wheel_rest_length = 0.07
+wheel_friction_slip = 2.0
+suspension_stiffness = 75.0
+damping_compression = 1.9
+damping_relaxation = 2.0
+
+[node name="mater-tire" parent="rear_right" instance=ExtResource("3_m8442")]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.68221e-07, -1.05379)
+shape = SubResource("BoxShape3D_5wvty")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.00696, -0.449687)
+shape = SubResource("BoxShape3D_ruqob")

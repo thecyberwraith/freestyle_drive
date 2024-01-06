@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://1yqpgovxfw3f"]
+
+[ext_resource type="PackedScene" uid="uid://8o133hatp362" path="res://models/decor/traffic_cone/model.glb" id="1_fcg4e"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_mi0ry"]
+height = 0.10964
+radius = 0.203455
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_a4y14"]
+radius = 0.144288
+height = 0.404271
+
+[node name="Traffic Cone" type="RigidBody3D"]
+collision_mask = 3
+
+[node name="model" parent="." instance=ExtResource("1_fcg4e")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0511105, 0)
+shape = SubResource("CylinderShape3D_mi0ry")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.225462, 0)
+shape = SubResource("CapsuleShape3D_a4y14")

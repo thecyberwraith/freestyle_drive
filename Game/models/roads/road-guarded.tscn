@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://vdyr4dg086jx"]
+
+[ext_resource type="PackedScene" uid="uid://wjx6gk80u4vh" path="res://models/roads/straight-guarded.glb" id="1_cvljx"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3357x"]
+size = Vector3(32.1027, 1, 8)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_n72fo"]
+size = Vector3(32, 1.5, 0.42523)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_75ayh"]
+size = Vector3(32, 1.45868, 0.42523)
+
+[node name="road-guarded" type="StaticBody3D"]
+
+[node name="straight-guarded" parent="." instance=ExtResource("1_cvljx")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.510714, 0.0118384)
+shape = SubResource("BoxShape3D_3357x")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75, -3.79723)
+shape = SubResource("BoxShape3D_n72fo")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75314, 3.78977)
+shape = SubResource("BoxShape3D_75ayh")

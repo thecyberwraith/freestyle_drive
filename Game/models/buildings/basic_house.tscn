@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://q66woofrr0sh"]
+
+[ext_resource type="ArrayMesh" uid="uid://oejhpd6apnpm" path="res://models/buildings/house-small.obj" id="1_a20r5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4avr4"]
+size = Vector3(9.90174, 5.20718, 9.08969)
+
+[node name="basic_house" type="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+
+[node name="House-small" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -1, 0)
+mesh = ExtResource("1_a20r5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.96027, 1.98232, -0.54702)
+shape = SubResource("BoxShape3D_4avr4")

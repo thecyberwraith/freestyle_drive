@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxyhiow6aqy33"]
+
+[ext_resource type="PackedScene" uid="uid://bhy8ijaqegqpo" path="res://models/roads/curve.glb" id="1_dxaix"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4nlvw"]
+size = Vector3(8, 1, 8)
+
+[node name="road-curve" type="StaticBody3D"]
+
+[node name="curve" parent="." instance=ExtResource("1_dxaix")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -0.95, 11)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, -0.45, -5)
+shape = SubResource("BoxShape3D_4nlvw")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 7.26795, -0.45, -1)
+shape = SubResource("BoxShape3D_4nlvw")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7, -0.45, 11)
+shape = SubResource("BoxShape3D_4nlvw")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="."]
+transform = Transform3D(-0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, -0.5, -1.5, -0.45, 8.13398)
+shape = SubResource("BoxShape3D_4nlvw")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 3.29289, -0.45, 4.29289)
+shape = SubResource("BoxShape3D_4nlvw")

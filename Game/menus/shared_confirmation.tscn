@@ -1,0 +1,44 @@
+[gd_scene load_steps=2 format=3 uid="uid://b7sscl6ipoelq"]
+
+[ext_resource type="Script" path="res://menus/shared_confirmation.gd" id="1_egta2"]
+
+[node name="SharedConfirmation" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_egta2")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.1
+anchor_right = 0.9
+anchor_bottom = 0.9
+
+[node name="UserInputBars" type="HBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.55
+anchor_top = 0.1
+anchor_right = 0.9
+anchor_bottom = 0.9
+alignment = 1
+
+[node name="ConsensusBar" type="ProgressBar" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.1
+anchor_right = 0.45
+anchor_bottom = 0.8
+offset_right = 4.0
+offset_bottom = 27.0
+min_value = -1.0
+max_value = 1.0
+step = 0.0
+fill_mode = 3
+show_percentage = false

@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bc8qgikei8w1u"]
+
+[ext_resource type="Script" path="res://levels/player_viewport.gd" id="1_jq3b4"]
+[ext_resource type="Script" path="res://levels/car_camera.gd" id="2_16duh"]
+
+[node name="PlayerViewport" type="SubViewportContainer"]
+size_flags_horizontal = 3
+size_flags_vertical = 3
+stretch = true
+script = ExtResource("1_jq3b4")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+handle_input_locally = false
+size = Vector2i(2, 2)
+render_target_update_mode = 4
+
+[node name="CarCamera" type="Camera3D" parent="SubViewport"]
+script = ExtResource("2_16duh")
