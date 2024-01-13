@@ -5,15 +5,15 @@
 [ext_resource type="PackedScene" uid="uid://dvpjyjopcfwb4" path="res://models/players/lightning-tire.glb" id="3_oxs87"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6dksl"]
-size = Vector3(2.56546, 1.47558, 5.01379)
+size = Vector3(1.84272, 1.47558, 5.01379)
 
 [node name="McQueen" type="VehicleBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.129094, -0.654079)
 collision_layer = 2
 mass = 300.0
 script = ExtResource("1_m88nl")
-max_rpm = 700
-max_tire_angle = 0.5
+max_rpm = 250
+max_tire_angle = 0.3
 
 [node name="lightning" parent="." instance=ExtResource("2_nt2ty")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.961206, -0.146307, -0.104054)
