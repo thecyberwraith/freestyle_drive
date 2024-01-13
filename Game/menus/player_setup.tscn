@@ -1,6 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://oid1w82h038s"]
+[gd_scene load_steps=7 format=3 uid="uid://c1iimeslbosat"]
 
-[ext_resource type="Script" path="res://PlayerSetup.gd" id="1_tw7yk"]
+[ext_resource type="Script" path="res://menus/player_setup.gd" id="1_y3376"]
 [ext_resource type="Script" path="res://utility/CharacterInfo.gd" id="2_c8fho"]
 [ext_resource type="Texture2D" uid="uid://cg507cebsou8e" path="res://menus/select_images/lightning.png" id="3_vk3m5"]
 
@@ -31,7 +31,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-script = ExtResource("1_tw7yk")
+script = ExtResource("1_y3376")
 options = Array[ExtResource("2_c8fho")]([SubResource("Resource_jwy61"), SubResource("Resource_ebhfn"), SubResource("Resource_1wr18")])
 
 [node name="Panel" type="Panel" parent="."]
