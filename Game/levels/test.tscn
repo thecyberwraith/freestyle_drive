@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cc86r7t3gb1yk"]
+[gd_scene load_steps=16 format=3 uid="uid://cc86r7t3gb1yk"]
 
 [ext_resource type="PackedScene" uid="uid://q66woofrr0sh" path="res://models/buildings/basic_house.tscn" id="1_su4uv"]
 [ext_resource type="PackedScene" uid="uid://1yqpgovxfw3f" path="res://models/decor/traffic_cone/traffic_cone.tscn" id="2_ifsxa"]
@@ -7,29 +7,30 @@
 [ext_resource type="PackedScene" uid="uid://vdyr4dg086jx" path="res://models/roads/road-guarded.tscn" id="5_3ov0p"]
 [ext_resource type="PackedScene" uid="uid://cxyhiow6aqy33" path="res://models/roads/road-curve.tscn" id="6_x4u81"]
 [ext_resource type="PackedScene" uid="uid://bskemkbpksv1g" path="res://models/roads/intersection.glb" id="7_dwl4t"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tx4us"]
-albedo_color = Color(0, 0.580392, 0.117647, 1)
+[ext_resource type="Texture2D" uid="uid://beu5m2wwd3mcl" path="res://levels/common_textures/grass00.png" id="8_fsto2"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_sksy3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5f3rn"]
-size = Vector3(1, 20, 1000)
+size = Vector3(1, 20, 500)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_d1284"]
-size = Vector3(1000, 20, 1)
+size = Vector3(500, 20, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vrp87"]
-size = Vector3(1000, 20, 1)
+size = Vector3(500, 20, 1)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_m8scr"]
 
-[node name="test" type="Node3D"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ycyid"]
+albedo_texture = ExtResource("8_fsto2")
+uv1_scale = Vector3(32, 32, 32)
 
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.13166, -0.0999924, -0.329987)
-size = Vector3(1000, 0.1, 1000)
-material = SubResource("StandardMaterial3D_tx4us")
+[sub_resource type="PlaneMesh" id="PlaneMesh_rb54v"]
+material = SubResource("StandardMaterial3D_ycyid")
+size = Vector2(500, 500)
+
+[node name="test" type="Node3D"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.96416, -0.054316, -0.259702, 0.265321, 0.197381, 0.94374, 0, -0.978821, 0.204718, 0, 164.386, 0)
@@ -42,19 +43,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.295563, -3.8147e-06, -2.55
 shape = SubResource("WorldBoundaryShape3D_sksy3")
 
 [node name="Left" type="CollisionShape3D" parent="World Bounds"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 500, 10, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 250, 10, 0)
 shape = SubResource("BoxShape3D_5f3rn")
 
 [node name="Right" type="CollisionShape3D" parent="World Bounds"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -500, 10, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -250, 10, 0)
 shape = SubResource("BoxShape3D_5f3rn")
 
 [node name="Back" type="CollisionShape3D" parent="World Bounds"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, -500)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, -250)
 shape = SubResource("BoxShape3D_d1284")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World Bounds"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 500)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 250)
 shape = SubResource("BoxShape3D_vrp87")
 
 [node name="Fun Ball" type="RigidBody3D" parent="."]
@@ -207,3 +208,6 @@ transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 32, 0, -
 
 [node name="intersection" parent="FlatRoad" instance=ExtResource("7_dwl4t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.95, 28)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_rb54v")
