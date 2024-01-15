@@ -4,7 +4,7 @@ class_name PlayerViewport
 
 @onready var viewport: SubViewport = $SubViewport
 @onready var camera: CarCamera = $SubViewport/CarCamera
-@onready var mph_Label: Label = $CanvasLayer/Label
+@onready var mph_Label: Label = $Label
 
 var player_info: PlayerInfo = null
 var input: InputProfile
