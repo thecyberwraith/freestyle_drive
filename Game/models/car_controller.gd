@@ -22,7 +22,7 @@ func _physics_process(delta):
 
 func _set_wheel_force(wheel: VehicleWheel3D, acceleration: float):
 	var rpm: float = wheel.get_rpm()
-	var damper: float = (1-(rpm/max_rpm)) * (1-(abs(steering)/max_tire_angle))
+	var damper: float = (1-(abs(rpm)/max_rpm)) * (1-(abs(steering)/max_tire_angle))
 	wheel.engine_force = acceleration * max_torque * damper
 
 func _process(delta):

@@ -23,6 +23,9 @@ func _process(_delta):
 	
 	forward = forward.normalized()
 	
+	if car.mph < -2:
+		forward *= -1
+
 	var speed_ratio: float = clampf(car.linear_velocity.length(), 0, speed_for_max) / speed_for_max
 	var view_ratio: float = lerp(min_ratio, max_ratio, speed_ratio)
 	var distance: float = lerp(min_dist, max_dist, speed_ratio)

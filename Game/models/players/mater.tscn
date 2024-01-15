@@ -15,7 +15,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.239001, 0)
 collision_layer = 2
 mass = 500.0
 script = ExtResource("1_lrqxi")
-max_rpm = 600
+max_rpm = 225
+max_torque = 1250
+max_tire_angle = 0.35
 
 [node name="mater" parent="." instance=ExtResource("2_akgbn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.16593)

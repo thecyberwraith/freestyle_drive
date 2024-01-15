@@ -70,7 +70,6 @@ func _process(delta):
 		return
 	
 	if player_state == PlayerState.PENDING:
-		print(input.get_steering())
 		if abs(input.get_steering()) > 0.5:
 			character_idx += int(input.get_steering()/abs(input.get_steering()))
 			character_idx = wrapi(character_idx, 0, len(options))
