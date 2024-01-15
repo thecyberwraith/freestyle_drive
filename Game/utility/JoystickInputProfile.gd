@@ -28,12 +28,14 @@ func _init(device: int=0):
 	_add_button(device, interact, JOY_BUTTON_B)
 	
 	var event = InputEventJoypadMotion.new()
+	event.device = device
 	event.axis = JOY_AXIS_LEFT_X
 	event.axis_value = 1.0
 	InputMap.add_action(steering_right, 0.2)
 	InputMap.action_add_event(steering_right, event)
 	
 	event = InputEventJoypadMotion.new()
+	event.device = device
 	event.axis_value = -1.0
 	InputMap.add_action(steering_left, 0.2)
 	InputMap.action_add_event(steering_left, event)
