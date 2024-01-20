@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b7by1uanorcej"
+path="res://.godot/imported/vintage-car-horn-153264.mp3-178cafd44fc3d893a23dea0f90503e12.mp3str"
+
+[deps]
+
+source_file="res://audio/effects/car horns/vintage-car-horn-153264.mp3"
+dest_files=["res://.godot/imported/vintage-car-horn-153264.mp3-178cafd44fc3d893a23dea0f90503e12.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

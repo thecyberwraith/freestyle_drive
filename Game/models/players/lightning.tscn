@@ -1,8 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://donvcwy24jgba"]
 
-[ext_resource type="Script" path="res://models/car_controller.gd" id="1_m88nl"]
+[ext_resource type="Script" path="res://models/players/car_controller.gd" id="1_m88nl"]
 [ext_resource type="PackedScene" uid="uid://ye0q6xo4pfxr" path="res://models/players/lightning.glb" id="2_nt2ty"]
 [ext_resource type="PackedScene" uid="uid://dvpjyjopcfwb4" path="res://models/players/lightning-tire.glb" id="3_oxs87"]
+
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6dksl"]
 size = Vector3(1.84272, 1.47558, 5.01379)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://c7wnupwyssbtm"]
 
-[ext_resource type="Script" path="res://models/car_controller.gd" id="1_lrqxi"]
+[ext_resource type="Script" path="res://models/players/car_controller.gd" id="1_lrqxi"]
 [ext_resource type="PackedScene" uid="uid://ewhrdb4oemj6" path="res://models/players/mater.glb" id="2_akgbn"]
 [ext_resource type="PackedScene" uid="uid://d0frmfgkuyn74" path="res://models/players/mater-tire.glb" id="3_m8442"]
 

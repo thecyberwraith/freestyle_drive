@@ -1,5 +1,6 @@
-[gd_scene load_steps=18 format=3 uid="uid://cc86r7t3gb1yk"]
+[gd_scene load_steps=20 format=3 uid="uid://cc86r7t3gb1yk"]
 
+[ext_resource type="Script" path="res://levels/test.gd" id="1_lljk6"]
 [ext_resource type="PackedScene" uid="uid://q66woofrr0sh" path="res://models/buildings/basic_house.tscn" id="1_su4uv"]
 [ext_resource type="PackedScene" uid="uid://1yqpgovxfw3f" path="res://models/decor/traffic_cone/traffic_cone.tscn" id="2_ifsxa"]
 [ext_resource type="PackedScene" uid="uid://1oj0phgthsfs" path="res://models/roads/straight.glb" id="5_ynt5i"]
@@ -11,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://beu5m2wwd3mcl" path="res://levels/common_textures/grass00.png" id="8_fsto2"]
 [ext_resource type="PackedScene" uid="uid://c45xfjlfrjx5o" path="res://models/decor/fun_ball/FunBall.tscn" id="9_14nr3"]
 [ext_resource type="PackedScene" uid="uid://blrlvymn35k08" path="res://models/roads/overhang-lights.glb" id="9_qj047"]
+[ext_resource type="AudioStream" uid="uid://bd6i1iulw3a21" path="res://audio/music/dance_music.mp3" id="12_uq3b1"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_sksy3"]
 
@@ -32,6 +34,7 @@ material = SubResource("StandardMaterial3D_ycyid")
 size = Vector2(500, 500)
 
 [node name="test" type="Node3D"]
+script = ExtResource("1_lljk6")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.96416, -0.054316, -0.259702, 0.265321, 0.197381, 0.94374, 0, -0.978821, 0.204718, 0, 164.386, 0)
@@ -169,3 +172,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -68, 0, -12)
 [node name="FunBall" parent="." instance=ExtResource("9_14nr3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.0885, 2.70703, 22.3428)
 collision_mask = 3
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_uq3b1")
+autoplay = true

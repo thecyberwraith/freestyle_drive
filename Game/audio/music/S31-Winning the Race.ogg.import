@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cc6841go463i3"
+path="res://.godot/imported/S31-Winning the Race.ogg-69b4a35f47f52de4207cff7cda80944c.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/music/S31-Winning the Race.ogg"
+dest_files=["res://.godot/imported/S31-Winning the Race.ogg-69b4a35f47f52de4207cff7cda80944c.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
