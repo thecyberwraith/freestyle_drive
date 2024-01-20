@@ -2,27 +2,30 @@ extends VehicleBody3D
 
 class_name PlayerVehicle
 
-var input: InputProfile = InputProfile.new()
+@export var input: InputProfile = InputProfile.new()
+
 var reset_timer: float = 0.0
 var mph: float:
 	get:
 		var rpm: float = ($rear_left.get_rpm() + $rear_right.get_rpm()) / 2
 		return 2 * PI * $rear_left.wheel_radius * rpm * 60 * 3.28084 / 5280
 		
-@export var max_rpm = 400
-@export var max_torque = 1000
-@export var max_tire_angle = 0.6
+@export_range(10,200) var max_mph: float = 50
+@export_range(0,1) var max_damper_for_turning: float = 0.9
+@export_range(500, 10000) var max_torque: float = 1000
+@export_range(0, PI) var max_tire_angle: float = 0.4
+@export_range(0.1,5) var steering_speed: float = 1.5
 
 func _physics_process(delta):
-	steering = lerp(steering, input.get_steering() * (-max_tire_angle), 1.5*delta)
+	steering = lerp(steering, input.get_steering() * (-max_tire_angle), steering_speed*delta)
 	var acceleration: float = input.get_forward() - input.get_brake()
 	
 	_set_wheel_force($rear_left, acceleration)
 	_set_wheel_force($rear_right, acceleration)
 
 func _set_wheel_force(wheel: VehicleWheel3D, acceleration: float):
-	var rpm: float = wheel.get_rpm()
-	var damper: float = (1-(abs(rpm)/max_rpm)) * (1-(abs(steering)/max_tire_angle))
+	var damper: float = (1-(abs(mph)/max_mph))
+	damper *= 1-min(max_damper_for_turning, abs(steering)/max_tire_angle)
 	wheel.engine_force = acceleration * max_torque * damper
 
 func _process(delta):

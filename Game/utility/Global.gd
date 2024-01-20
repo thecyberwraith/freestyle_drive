@@ -1,5 +1,7 @@
 extends Node
 
+const VERSION: String = "0.0.1"
+
 var player_info: Array[PlayerInfo] = []:
 	get:
 		return player_info

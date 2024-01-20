@@ -12,9 +12,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.129094, -0.654079)
 collision_layer = 2
 mass = 300.0
 script = ExtResource("1_m88nl")
-max_rpm = 250
-max_torque = 1500
-max_tire_angle = 0.3
+max_mph = 36.897
+max_damper_for_turning = 0.941
+max_torque = 1720.69
+max_tire_angle = 0.213
+steering_speed = 0.993
 
 [node name="lightning" parent="." instance=ExtResource("2_nt2ty")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.961206, -0.146307, -0.104054)

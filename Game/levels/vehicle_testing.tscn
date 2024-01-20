@@ -1,0 +1,40 @@
+[gd_scene load_steps=9 format=3 uid="uid://ctr3hm48cxjd0"]
+
+[ext_resource type="Texture2D" uid="uid://beu5m2wwd3mcl" path="res://levels/common_textures/grass00.png" id="1_hi8jw"]
+[ext_resource type="Script" path="res://levels/car_camera.gd" id="2_csifx"]
+[ext_resource type="PackedScene" uid="uid://donvcwy24jgba" path="res://models/players/lightning.tscn" id="3_fooom"]
+[ext_resource type="Script" path="res://utility/KeyboardInputProfile.gd" id="4_net3c"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y03np"]
+albedo_texture = ExtResource("1_hi8jw")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_7ptqx"]
+material = SubResource("StandardMaterial3D_y03np")
+size = Vector2(200, 200)
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_wmey8"]
+
+[sub_resource type="Resource" id="Resource_jp76c"]
+script = ExtResource("4_net3c")
+profile_index = 1
+
+[node name="vehicle_testing" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_7ptqx")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+shape = SubResource("WorldBoundaryShape3D_wmey8")
+
+[node name="CarCamera" type="Camera3D" parent="." node_paths=PackedStringArray("car")]
+script = ExtResource("2_csifx")
+car = NodePath("../McQueen")
+
+[node name="McQueen" parent="." instance=ExtResource("3_fooom")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.870906, -0.654079)
+input = SubResource("Resource_jp76c")
+max_mph = 91.931
+max_damper_for_turning = 0.831
+max_torque = 1524.14

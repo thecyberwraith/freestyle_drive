@@ -14,7 +14,11 @@ var process_input: bool = true
 
 @onready var playerSetupPanelContainer = $Players
 @onready var instructions = $Players/Instructions
-	
+@onready var version_label = $Version
+
+func _ready():
+	version_label.text = "Version %s" % Global.VERSION
+
 func _input(event: InputEvent):
 	if not process_input:
 		return

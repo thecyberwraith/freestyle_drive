@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://c45xfjlfrjx5o"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_tpwrh"]
+radius = 1.0
+
+[node name="FunBall" type="RigidBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_tpwrh")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="."]
+radius = 1.0

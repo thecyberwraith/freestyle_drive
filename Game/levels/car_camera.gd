@@ -2,13 +2,13 @@ extends Camera3D
 
 class_name CarCamera
 
-var car: PlayerVehicle = null
-
 const speed_for_max: float = 150
 const max_dist:float = 30
 const min_dist:float = 3
 const min_ratio:float = 1
 const max_ratio:float = 2
+
+@export var car: PlayerVehicle = null
 
 func _process(_delta):
 	if car == null:
