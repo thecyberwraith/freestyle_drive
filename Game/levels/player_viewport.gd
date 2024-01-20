@@ -7,13 +7,12 @@ class_name PlayerViewport
 @onready var mph_Label: Label = $Label
 
 var player_info: PlayerInfo = null
-var input: InputProfile
 var _init_world = null
 
 func initialize(level: Node, an_info: PlayerInfo):
 	_init_world = level
 	player_info = an_info
-	player_info.instance.input = player_info.input
+	player_info.instance.player_info = player_info
 
 func _ready():
 	if not _init_world == null:

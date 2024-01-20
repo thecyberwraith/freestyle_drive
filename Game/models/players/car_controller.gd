@@ -2,7 +2,7 @@ extends VehicleBody3D
 
 class_name PlayerVehicle
 
-@export var input: InputProfile = InputProfile.new()
+@onready var interactor: Interactor = $Interactor
 
 var reset_timer: float = 0.0
 var mph: float:
@@ -16,7 +16,14 @@ var mph: float:
 @export_range(0, PI) var max_tire_angle: float = 0.4
 @export_range(0.1,5) var steering_speed: float = 1.5
 
+@export var player_info: PlayerInfo = null:
+	set(value):
+		if is_node_ready():
+			interactor.player_info = value
+			player_info = value
+
 func _physics_process(delta):
+	var input: InputProfile = player_info.input
 	steering = lerp(steering, input.get_steering() * (-max_tire_angle), steering_speed*delta)
 	var acceleration: float = input.get_forward() - input.get_brake()
 	

@@ -175,4 +175,5 @@ collision_mask = 3
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_uq3b1")
+volume_db = -10.331
 autoplay = true
