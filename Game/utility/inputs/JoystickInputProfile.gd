@@ -49,8 +49,8 @@ func get_forward() -> float:
 func get_brake() -> float:
 	return Input.get_action_strength(backward)
 
-func get_interact() -> bool:
-	return Input.is_action_pressed(interact)
+func get_interact_action() -> String:
+	return interact
 
 func _to_string():
 	return profile

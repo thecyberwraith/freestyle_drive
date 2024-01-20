@@ -31,8 +31,8 @@ func get_brake() -> float:
 func get_steering() -> float:
 	return Input.get_axis(left, right)
 
-func get_interact() -> bool:
-	return Input.is_action_pressed(interact)
+func get_interact_action() -> String:
+	return interact
 	
 func _to_string() -> String:
 	return "Keyboard Input %s" % profile_index

@@ -109,6 +109,8 @@ reset_player_4={
 
 3d_physics/layer_1="Solid Shapes"
 3d_physics/layer_2="Players"
+3d_physics/layer_3="Interaction Provider"
+3d_physics/layer_4="Interactor"
 
 [rendering]
 
