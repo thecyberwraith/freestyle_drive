@@ -1,12 +1,20 @@
-[gd_scene load_steps=2 format=3 uid="uid://c45xfjlfrjx5o"]
+[gd_scene load_steps=4 format=3 uid="uid://c45xfjlfrjx5o"]
+
+[ext_resource type="PackedScene" uid="uid://bfimouyaff7b1" path="res://models/decor/fun_ball/fun_ball.glb" id="1_noyvy"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_iho08"]
+friction = 0.95
+bounce = 0.72
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_tpwrh"]
-radius = 1.0
+radius = 3.02445
 
 [node name="FunBall" type="RigidBody3D"]
+mass = 0.26
+physics_material_override = SubResource("PhysicsMaterial_iho08")
+gravity_scale = 0.5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_tpwrh")
 
-[node name="CSGSphere3D" type="CSGSphere3D" parent="."]
-radius = 1.0
+[node name="fun_ball" parent="." instance=ExtResource("1_noyvy")]
