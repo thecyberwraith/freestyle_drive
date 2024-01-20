@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dni2jsn31oq2j"]
 
 [ext_resource type="Script" path="res://menus/select_characters_screen.gd" id="1_vsvop"]
-[ext_resource type="Script" path="res://utility/KeyboardInputProfile.gd" id="2_07mwj"]
+[ext_resource type="Script" path="res://utility/inputs/KeyboardInputProfile.gd" id="2_07mwj"]
 
 [sub_resource type="Resource" id="Resource_gevb2"]
 script = ExtResource("2_07mwj")
