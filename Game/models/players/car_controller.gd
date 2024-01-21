@@ -4,6 +4,7 @@ class_name PlayerVehicle
 
 @onready var interactor: Interactor = $Interactor
 
+const MAX_FLIPPED_TIME_TILL_RIGHTED = 2.0
 var reset_timer: float = 0.0
 var mph: float:
 	get:
@@ -37,10 +38,10 @@ func _set_wheel_force(wheel: VehicleWheel3D, acceleration: float):
 
 func _process(delta):
 	var rel_up: Vector3 = transform.basis.y
-	if rel_up.angle_to(Vector3.UP) >= PI/2:
+	if rel_up.angle_to(Vector3.UP) >= PI/4:
 		reset_timer += delta
-		if reset_timer > 2.0:
-			pass
+		if reset_timer > MAX_FLIPPED_TIME_TILL_RIGHTED:
+			set_upright()
 	else:
 		reset_timer = 0.0
 
