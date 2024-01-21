@@ -29,6 +29,9 @@ func attempt_interaction():
 		func(x: InteractionProvider): x.interaction_available(player_info)
 	)
 	
+	if len(interactions) == 0:
+		return
+	
 	var provider: InteractionProvider = interactions.reduce(
 		func(x: InteractionProvider, m: InteractionProvider):
 			if x.interaction_priority > m.interaction_priority:

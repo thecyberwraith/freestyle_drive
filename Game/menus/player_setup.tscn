@@ -20,7 +20,7 @@ vehicle_path = "res://models/players/mater.tscn"
 script = ExtResource("2_c8fho")
 thumbnail_path = "res://menus/select_images/test.png"
 name = "Test Car"
-vehicle_path = "res://models/base_car.tscn"
+vehicle_path = "res://models/players/base_car.tscn"
 
 [node name="PlayerSetup" type="Control"]
 layout_mode = 3

@@ -1,8 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://c7wnupwyssbtm"]
+[gd_scene load_steps=11 format=3 uid="uid://c7wnupwyssbtm"]
 
 [ext_resource type="Script" path="res://models/players/car_controller.gd" id="1_lrqxi"]
 [ext_resource type="PackedScene" uid="uid://ewhrdb4oemj6" path="res://models/players/mater.glb" id="2_akgbn"]
 [ext_resource type="PackedScene" uid="uid://d0frmfgkuyn74" path="res://models/players/mater-tire.glb" id="3_m8442"]
+[ext_resource type="Script" path="res://utility/interactions/horn_provider.gd" id="4_6idgv"]
+[ext_resource type="AudioStream" uid="uid://b7by1uanorcej" path="res://audio/effects/car horns/vintage-car-horn-153264.mp3" id="5_2ytku"]
+[ext_resource type="Script" path="res://utility/interactions/interactor.gd" id="6_nqqg5"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5wvty"]
 size = Vector3(2.04733, 1, 4.6262)
@@ -10,12 +13,16 @@ size = Vector3(2.04733, 1, 4.6262)
 [sub_resource type="BoxShape3D" id="BoxShape3D_ruqob"]
 size = Vector3(2, 0.998238, 1.35725)
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_kvtji"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8nb7n"]
+size = Vector3(3, 2.48256, 8)
+
 [node name="Mater" type="VehicleBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.239001, 0)
 collision_layer = 2
 mass = 500.0
 script = ExtResource("1_lrqxi")
-max_rpm = 225
 max_torque = 1250
 max_tire_angle = 0.35
 
@@ -85,3 +92,20 @@ shape = SubResource("BoxShape3D_5wvty")
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.00696, -0.449687)
 shape = SubResource("BoxShape3D_ruqob")
+
+[node name="HornInteractionProvider" type="Area3D" parent="." node_paths=PackedStringArray("sound")]
+script = ExtResource("4_6idgv")
+sound = NodePath("HornSound")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HornInteractionProvider"]
+shape = SubResource("SphereShape3D_kvtji")
+
+[node name="HornSound" type="AudioStreamPlayer" parent="HornInteractionProvider"]
+stream = ExtResource("5_2ytku")
+
+[node name="Interactor" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.433957, 0)
+script = ExtResource("6_nqqg5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interactor"]
+shape = SubResource("BoxShape3D_8nb7n")

@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://beuf3g1mqyedf"]
+[gd_scene load_steps=7 format=3 uid="uid://beuf3g1mqyedf"]
 
 [ext_resource type="Script" path="res://models/players/car_controller.gd" id="1_uq72f"]
+[ext_resource type="Script" path="res://utility/interactions/interactor.gd" id="2_ie1bw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hq1ot"]
 albedo_color = Color(0, 0, 0, 1)
@@ -9,13 +10,17 @@ albedo_color = Color(0, 0, 0, 1)
 albedo_color = Color(0.298039, 0.298039, 0.298039, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lc0f4"]
-size = Vector3(3.34764, 1.57572, 3.65138)
+size = Vector3(2, 1.57572, 3.65138)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ygq5k"]
+size = Vector3(2.54944, 2.12651, 6.15771)
 
 [node name="Car" type="VehicleBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00830603, -0.657004, -0.621139)
 mass = 300.0
 script = ExtResource("1_uq72f")
-max_torque = 800
+max_mph = 40.0
+max_torque = 500.0
 max_tire_angle = 0.35
 
 [node name="front_left" type="VehicleWheel3D" parent="."]
@@ -93,3 +98,10 @@ size = Vector3(2.20773, 0.497806, 1)
 [node name="CSGBox3D3" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.36322, -0.638683)
 size = Vector3(2.20773, 0.929411, 2.21086)
+
+[node name="Interactor" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.06878, 0.707371)
+script = ExtResource("2_ie1bw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interactor"]
+shape = SubResource("BoxShape3D_ygq5k")
