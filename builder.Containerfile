@@ -12,16 +12,22 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 ARG GODOT_VERSION="4.1.2"
 ARG RELEASE_NAME="stable"
 
-RUN wget https://downloads.tuxfamily.org/godotengine/${GODOT_VERSION}${SUBDIR}/Godot_v${GODOT_VERSION}-${RELEASE_NAME}_linux.x86_64.zip \
-    && wget https://downloads.tuxfamily.org/godotengine/${GODOT_VERSION}${SUBDIR}/Godot_v${GODOT_VERSION}-${RELEASE_NAME}_export_templates.tpz \
+RUN useradd -ms /bin/bash godot
+USER godot
+WORKDIR /home/godot
+
+RUN wget https://downloads.tuxfamily.org/godotengine/${GODOT_VERSION}/Godot_v${GODOT_VERSION}-${RELEASE_NAME}_linux.x86_64.zip \
+    && wget https://downloads.tuxfamily.org/godotengine/${GODOT_VERSION}/Godot_v${GODOT_VERSION}-${RELEASE_NAME}_export_templates.tpz \
     && mkdir ~/.cache \
     && mkdir -p ~/.local/share/godot/export_templates/${GODOT_VERSION}.${RELEASE_NAME} \
     && unzip Godot_v${GODOT_VERSION}-${RELEASE_NAME}_linux.x86_64.zip \
-    && mv Godot_v${GODOT_VERSION}-${RELEASE_NAME}_linux.x86_64 /usr/local/bin/godot \
+    && mkdir -p ~/.local/bin \
+    && mv Godot_v${GODOT_VERSION}-${RELEASE_NAME}_linux.x86_64 ~/.local/bin/godot \
     && unzip Godot_v${GODOT_VERSION}-${RELEASE_NAME}_export_templates.tpz \
     && mv templates/* ~/.local/share/godot/export_templates/${GODOT_VERSION}.${RELEASE_NAME} \
     && rm -f Godot_v${GODOT_VERSION}-${RELEASE_NAME}_export_templates.tpz Godot_v${GODOT_VERSION}-${RELEASE_NAME}_linux.x86_64.zip
 
-RUN mkdir -p /home/godot/project
+ENV PATH "$PATH:~/.local/bin"
+RUN mkdir /home/godot/project
 
-CMD ["godot", "-v", "-e", "--quit", "--headless"]
+CMD ["./.local/bin/godot", "-v", "-e", "--quit", "--headless"]

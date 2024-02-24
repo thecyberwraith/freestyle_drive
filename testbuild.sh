@@ -1,0 +1,2 @@
+docker build -t godotimg -f builder.Containerfile .
+docker run --rm -v $(realpath Game):/home/godot/project godotimg ./.local/bin/godot --verbose --headless --export-release Linux/X11 /home/godot/project/project.godot
