@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://beu5m2wwd3mcl" path="res://levels/common_textures/grass00.png" id="1_hi8jw"]
 [ext_resource type="Script" path="res://levels/car_camera.gd" id="2_csifx"]
 [ext_resource type="PackedScene" uid="uid://donvcwy24jgba" path="res://models/players/lightning.tscn" id="3_fooom"]
-[ext_resource type="Script" path="res://utility/KeyboardInputProfile.gd" id="4_net3c"]
+[ext_resource type="Script" path="res://utility/inputs/KeyboardInputProfile.gd" id="4_net3c"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y03np"]
 albedo_texture = ExtResource("1_hi8jw")
