@@ -5,7 +5,8 @@ Game/releases/
 # Godot-specific ignores
 Game/import/
 export.cfg
-export_presets.cfg
+# I have no secrets yet, so I'll keep the exports file.
+# export_presets.cfg
 .Game/**/*.tmp
 
 # Imported translations (automatically generated from CSV files)
